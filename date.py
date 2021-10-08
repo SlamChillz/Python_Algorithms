@@ -2,12 +2,22 @@
 
 from datetime import *
 
-def dayDifference(dayOne, dayTwo):
-    try:
-        dayOne = date.fromisoformat(str(dayOne))
-        dayTwo = date.fromisoformat(str(dayTwo))
-    except ValueError:
-        return("Error! Ensure the date format is 'YYYY-MM-DD'")
-    else:
-        diff =abs((dayOne-dayTwo).days)
-        return("The difference between {} and {} in day(s) is: {}".format(dayOne, dayTwo, diff))
+def dayDifference():
+    while True:
+        try:
+            dayOne = input("Enter first date 'YYYY-MM-DD': ")
+            dayOne = date.fromisoformat(str(dayOne))
+            break
+        except ValueError:
+            print("Date format must be 'YYYY-MM-DD'")
+    while True:
+        try:
+            dayTwo = input("Enter second date 'YYYY-MM-DD': ")
+            dayTwo = date.fromisoformat(str(dayTwo))
+            break
+        except ValueError:
+            print("Date format must be 'YYYY-MM-DD'")
+    diff =abs((dayOne-dayTwo).days)
+    print("The difference between {} and {} in day(s) is: {}".format(dayOne, dayTwo, diff))
+    
+dayDifference()
